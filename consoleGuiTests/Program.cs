@@ -14,7 +14,7 @@ namespace consoleGuiTests
             void pwc(string text, ConsoleColor color)
             {
                 Console.BackgroundColor = color;
-                Console.WriteLine(text);
+                Console.Write(text);
                 Console.ResetColor();
             }
 
@@ -26,11 +26,35 @@ namespace consoleGuiTests
                 {
                     if (i == pointer)
                     {
-                        pwc(objects[i], ConsoleColor.Red);
+                        string[] temp = objects[i].Split(':');
+                        string t2 = "null";
+                        if(temp[1] == "0")
+                        {
+                            t2 = "Off";
+                        }
+                        else if(temp[1] == "1")
+                        {
+                            t2 = "On";
+                        }
+
+                        Console.Write(temp[0] + " : ");
+                        pwc(t2 + "\n", ConsoleColor.Red);
                     }
                     else
                     {
-                        pwc(objects[i], ConsoleColor.Black);
+                        string[] temp = objects[i].Split(':');
+                        string t2 = "null";
+                        if (temp[1] == "0")
+                        {
+                            t2 = "Off";
+                        }
+                        else if (temp[1] == "1")
+                        {
+                            t2 = "On";
+                        }
+
+                        Console.Write(temp[0] + " : ");
+                        pwc(t2 + "\n", ConsoleColor.Black);
                     }
 
                 }
